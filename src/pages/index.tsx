@@ -1,11 +1,15 @@
 import * as React from "react";
+import Layout from "../components/Layout";
+import Seo from "../components/Seo";
 
-const IndexPage = () => {
+export default function IndexPage() {
   return (
     <div>
-      <span>Home</span>
+      <Layout title="Welcome to DevStickers">
+        <span></span>
+      </Layout>
     </div>
   );
-};
+}
 
-export default IndexPage;
+export const Head = () => <Seo title="Home" />;
