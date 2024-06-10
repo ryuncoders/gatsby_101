@@ -14,7 +14,7 @@ export default function PostDetail({ data, children }: IPostDetailProps) {
     data.mdx?.frontmatter?.headerImage?.childImageSharp?.gatsbyImageData!
   );
   return (
-    <Layout title="anything">
+    <Layout title="">
       <GatsbyImage image={image as any} alt={data.mdx?.frontmatter?.title!} />
       <div>{children}</div>
     </Layout>
@@ -23,16 +23,16 @@ export default function PostDetail({ data, children }: IPostDetailProps) {
 
 export const query = graphql`
   query PostDetail {
-    mdx(frontmatter: { slug: { eq: "hello-world", glob: "" } }) {
+    mdx {
       frontmatter {
         author
+        cartegory
+        date
         slug
         title
-        date
-        cartegory
         headerImage {
           childImageSharp {
-            gatsbyImageData(width: 300)
+            gatsbyImageData(height: 250)
           }
         }
       }
