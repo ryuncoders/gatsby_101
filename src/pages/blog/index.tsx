@@ -3,7 +3,6 @@ import Layout from "../../components/Layout";
 import { Link, PageProps, graphql } from "gatsby";
 
 export default function Blog({ data }: PageProps<Queries.BlogPostsQuery>) {
-  console.log(data);
   return (
     <Layout title="Blog">
       <section>
@@ -13,9 +12,7 @@ export default function Blog({ data }: PageProps<Queries.BlogPostsQuery>) {
               <h1> {file.frontmatter?.title}</h1>
             </Link>
             <div>
-              <span>
-                {file.frontmatter?.author} in:
-              </span>
+              <span>{file.frontmatter?.author} in:</span>
             </div>
             <hr />
           </article>
