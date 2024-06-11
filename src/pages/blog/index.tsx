@@ -1,8 +1,12 @@
 import React from "react";
 import Layout from "../../components/Layout";
-import { Link, PageProps, graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
 
-export default function Blog({ data }: PageProps<Queries.BlogPostsQuery>) {
+interface IBlogProps {
+  data: Queries.BlogPostsQuery;
+}
+
+export default function Blog({ data }: IBlogProps) {
   return (
     <Layout title="Blog">
       <section>
@@ -12,7 +16,8 @@ export default function Blog({ data }: PageProps<Queries.BlogPostsQuery>) {
               <h1> {file.frontmatter?.title}</h1>
             </Link>
             <div>
-              <span>{file.frontmatter?.author} in:</span>
+              <span>{file.frontmatter?.author}</span>
+              <span>{file.frontmatter?.date}</span>
             </div>
             <hr />
           </article>
@@ -28,6 +33,8 @@ export const query = graphql`
       nodes {
         frontmatter {
           author
+          cartegory
+          date
           slug
           title
         }

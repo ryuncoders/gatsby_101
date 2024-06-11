@@ -14,7 +14,7 @@ export default function PostDetail({ data, children }: IPostDetailProps) {
     data.mdx?.frontmatter?.headerImage?.childImageSharp?.gatsbyImageData!
   );
   return (
-    <Layout title="">
+    <Layout title={data.mdx?.frontmatter?.title!}>
       <GatsbyImage image={image as any} alt={data.mdx?.frontmatter?.title!} />
       <div>{children}</div>
     </Layout>
